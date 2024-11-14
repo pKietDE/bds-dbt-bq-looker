@@ -1,21 +1,40 @@
+from datetime import datetime,timedelta
 import re
-
 class TimeConverter:
     @staticmethod
     def convert_update_time(update_time):
-        # Dùng regex để kiểm tra chuỗi
-        match = re.match(r"Đăng (\d+)\s*ngày\s*trước", update_time)
+        try :
+
+            # Kiểm tra trường hợp "Đăng hôm nay"
+            if "Đăng hôm nay" in update_time:
+                return datetime.now().date()
+            
+            # Kiểm tra trường hợp "Đăng hôm qua"
+            elif "Đăng hôm qua" in update_time:
+                return datetime.now().date() - timedelta(days=1)
+            
+            # Kiểm tra trường hợp "Đăng X ngày trước"
+            match = re.match(r"Đăng (\d+)\s*ngày\s*trước", update_time)
+            pattern = r"Đăng (\b\d{2}/\d{2}/\d{4}\b)"
+            match_gr_2 = re.search(pattern,update_time)
+
+            if match:
+                day_count = int(match.group(1))
+                return datetime.now().date() - timedelta(days=day_count)
+            else:
+                date_match = match_gr_2.group(1)
+                if date_match:
+                    return date_match
+                else:
+                    return None
+        except:
+            return update_time
         
-        if match:
-            # Lấy số ngày từ chuỗi
-            day_count = int(match.group(1))
-            if 1 <= day_count <= 6:  # Chỉ chấp nhận từ 1 đến 6 ngày
-                return day_count + 1  # "Đăng X ngày trước" sẽ trả về X+1 (VD: "Đăng 2 ngày trước" trả về 3)
-        
-        # Các trường hợp đặc biệt khác
-        if "Đăng hôm nay" in update_time:
-            return 1
-        elif "Đăng hôm qua" in update_time:
-            return 2
-        
-        return None  # Trả về None nếu không khớp định dạng
+    def calculate_date(update_time):
+        try:
+            date_conver = datetime.strptime(update_time, "%Y/%m/%d").date()
+            date_now = datetime.now().date()  # Lấy ngày hiện tại dưới dạng đối tượng date
+            q = (date_now - date_conver).days
+            return int(q)
+        except ValueError:
+            return None  # Nếu không khớp định dạng thì trả về None
