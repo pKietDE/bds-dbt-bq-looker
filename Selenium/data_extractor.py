@@ -24,15 +24,11 @@ class DataExtractor:
         """Lấy tất cả dữ liệu của các bất động sản từ một trang"""
         all_properties = []
         invalid_count = 0
-        client_mongo = None
         retry_limit = 3  # Giới hạn số lần retry
         retry_count = 0  # Đếm số lần retry
 
         try:
 
-
-            client_mongo = MongoDBClient()
-            
             while retry_count < retry_limit:
                 try:
                     # lấy danh sách property cards
@@ -66,7 +62,6 @@ class DataExtractor:
             for card in property_cards:
                 try:
                     data = {}
-                    time.sleep(4)
                     # Lấy địa chỉ
                     try:
                         address_element = card.find_element(By.CSS_SELECTOR, "[class*='js__card-title']")
@@ -103,12 +98,14 @@ class DataExtractor:
 
                         try:
                             price_m2_element = card.find_element(By.CSS_SELECTOR, "span.re__card-config-price_per_m2.js__card-config-item")
-                            price_m2_parts = price_m2_element.text.split(" ")
-                            data['price_m2'] = price_m2_parts[0] + " " + price_m2_parts[1]
+                            # Lấy giá trị của price_m2 và loại bỏ các ký tự không mong muốn (dấu chấm, newline)
+                            price_m2_text = price_m2_element.text.replace("·", "").replace("\n", "").strip()
+                            price_m2_parts = price_m2_text.split(" ")
+                            data['price_m2'] = (price_m2_parts[0] + " " + price_m2_parts[1]).replace(".", "")
                             logging.info(f"Price_m2 : {data['price_m2']}")
-                        except:
+                        except Exception as e:
                             logging.warning(f"Lỗi khi lấy price_m2 ")
-                            data['price_m2']= ""
+                            data['price_m2'] = ""
 
                     except Exception as e:
                         logging.warning(f"Lỗi khi lấy giá và m2 ")
@@ -193,14 +190,6 @@ class DataExtractor:
         except Exception as e:
             logging.error(f"Lỗi khi lấy danh sách cards: {str(e)}")
             return []
-        
-        finally:
-            if client_mongo:
-                try:
-                    client_mongo.quit()
-                    logging.info("Đã đóng kết nối MongoDB")
-                except Exception as e:
-                    logging.error(f"Lỗi khi đóng kết nối MongoDB: {str(e)}")
 
         logging.info(f"Hoàn thành xử lý, tổng số bản ghi thành công: {len(all_properties)}")
         return all_properties

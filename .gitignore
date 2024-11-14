@@ -163,6 +163,9 @@ LearnFrameWork
 project
 Spark
 
+# file .sh
+*.sh
+
 
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can

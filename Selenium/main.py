@@ -7,6 +7,7 @@ from server_mongodb import *
 from cloud import *
 from google.cloud import storage
 from google.oauth2 import service_account
+from ConfigParser import *
 
 # Cấu hình logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -32,8 +33,10 @@ def process_single_page(page_url, page):
         return []
 
 def main():
-    PATH = "/home/kiet/Downloads/key.json"
-    credentials = service_account.Credentials.from_service_account_file(PATH)
+    config = ConfigReader()
+    FOLDER_SAVE_DATA = config.get_config("PATH","FOLDER_SAVE_DATA")
+    FILE_KEY = config.get_config("PATH","FILE_KEY")
+    credentials = service_account.Credentials.from_service_account_file(FILE_KEY)
     storage_client = storage.Client(credentials=credentials)
     gcs = GCStorage(storage_client)
     base_url = "https://batdongsan.com.vn/nha-dat-ban"
@@ -48,7 +51,7 @@ def main():
 
     # Sau khi tất cả các thread hoàn thành, upload file lên GCS
     current_date = datetime.datetime.now().strftime("%Y-%m-%d")
-    file_name = f"/home/kiet/Documents/vsCode/Selenium/Data/data_bds_{current_date}.json"
+    file_name = f"{FOLDER_SAVE_DATA}data_bds_{current_date}.json"
     gcs.upload_files_to_gcs(file_name)
 
 

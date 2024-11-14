@@ -1,7 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
-
 from selenium.webdriver.support import expected_conditions as EC
 from fake_useragent import UserAgent
 import logging
@@ -28,7 +27,6 @@ class DriverManager:
         options.add_argument('--disable-blink-features=AutomationControlled')  # Tắt các tính năng nhận diện tự động hóa
         options.add_argument('--disable-notifications')  # Tắt các thông báo từ trình duyệt
         options.add_argument('--disable-site-isolation-trials')
-        options.add_extension('/home/kiet/Downloads/CORS-extension.crx')
 
         
         try:

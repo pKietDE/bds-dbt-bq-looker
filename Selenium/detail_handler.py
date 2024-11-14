@@ -10,6 +10,7 @@ import time
 from bson import json_util  # Để hỗ trợ ObjectId
 from server_mongodb import MongoDBClient
 import os
+from ConfigParser import *
 
 
 class DetailHandler:
@@ -17,6 +18,8 @@ class DetailHandler:
         self.driver = driver
         self.client_mongo = MongoDBClient()
         self.page = page
+        config = ConfigReader()
+        self.PATH = config.get_config("PATH","FOLDER_SAVE_DATA")
 
     def handle_detail(self):
         """Xử lý chi tiết dữ liệu từ trang web"""
@@ -36,15 +39,15 @@ class DetailHandler:
             # Luu du lieu vao mongo 
             try:
                 self.client_mongo.insert_many(list_data)
-                logging.info(f"Đã xử lý và lưu trữ dữ liệu thành công {len(list_data)} ban ghi")
+                logging.info(f"Đã xử lý và lưu trữ dữ liệu thành công lên mongo {len(list_data)} ban ghi")
             except Exception as e :
                 logging.warning(f"Loi :{e}")
             # Lưu vào file JSON
 
             try:
-                json_success = self.save_to_json(list_data)
+                json_success = self.save_to_json(list_data,self.PATH)
                 if json_success:
-                    logging.info(f"Đã xử lý và lưu trữ dữ liệu thành công {len(list_data)} ban ghi")
+                    logging.info(f"Đã xử lý và lưu trữ dữ liệu thành công vào file json {len(list_data)} ban ghi")
             except Exception as e :
                 logging.warning(f"loi :{e}")
                 
@@ -66,7 +69,7 @@ class DetailHandler:
                 except Exception as e:
                     logging.error(f"Lỗi khi đóng kết nối MongoDB: {str(e)}")
 
-    def save_to_json(self, data, base_path="/home/kiet/Documents/vsCode/Selenium/Data/"):
+    def save_to_json(self, data, base_path):
         """
         Lưu dữ liệu vào file JSON với khả năng append đúng định dạng
         
