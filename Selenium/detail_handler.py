@@ -82,7 +82,8 @@ class DetailHandler:
         """
         try:
             # Đường dẫn file JSON
-            file_name = os.path.join(base_path, "data_bds.json")
+            current_date = datetime.datetime.now().strftime("%Y-%m-%d")
+            file_name = os.path.join(base_path, f"data_bds_{current_date}.json")
             
             # Kiểm tra file JSON hiện có
             existing_data = []
