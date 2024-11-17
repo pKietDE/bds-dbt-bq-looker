@@ -28,6 +28,11 @@ class DriverManager:
         options.add_argument('--disable-notifications')  # Tắt các thông báo từ trình duyệt
         options.add_argument('--disable-site-isolation-trials')
 
+
+        # Su dung headless
+        options.add_argument('--no-sandbox')  # Tắt sandboxing (phải cho các hệ thống Linux)
+        options.add_argument('--disable-dev-shm-usage')  # Tắt sử dụng shared memory trong Linux
+        options.add_argument('--headless')
         
         try:
             

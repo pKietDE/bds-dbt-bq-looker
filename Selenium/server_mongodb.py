@@ -3,6 +3,8 @@ from pymongo.errors import ConnectionFailure, OperationFailure, ServerSelectionT
 from typing import List, Dict, Optional
 import datetime
 import logging
+from ConfigParser import *
+
 
 class MongoDBClient:
     def __init__(self, host="mongodb://localhost:27017/", timeout=5000):
@@ -17,10 +19,13 @@ class MongoDBClient:
             self.client = MongoClient(host, serverSelectionTimeoutMS=timeout)
             # Kiểm tra kết nối
             self.client.admin.command('ping')
+            config_reader = ConfigReader()
+            DATABASE = str(config_reader.get_config("MONGO","DATABASE"))
+            COLLECTION = str(config_reader.get_config("MONGO","COLLECTION"))
             
             current_date = datetime.datetime.now().strftime("%Y-%m-%d")
-            self.db = self.client["batdongsan"]
-            self.collection = self.db[f"bds_{current_date}"]
+            self.db = self.client[DATABASE]
+            self.collection = self.db[f"{COLLECTION}{current_date}"]
             logging.info("Kết nối MongoDB thành công")
             
         except ConnectionFailure as e:

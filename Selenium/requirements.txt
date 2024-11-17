@@ -4,3 +4,4 @@ lxml==5.3.0
 webdriver-manager==4.0.2
 pymongo==4.10.1
 google-cloud-storage==2.18.2
+fake_useragent==1.5.1
