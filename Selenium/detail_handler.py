@@ -71,7 +71,7 @@ class DetailHandler:
 
     def save_to_json(self, data, base_path):
         """
-        Lưu dữ liệu vào file JSON với khả năng append đúng định dạng
+        Lưu dữ liệu vào file JSON mà không làm hỏng định dạng
         
         Args:
             data: Dữ liệu cần lưu (list các documents)
@@ -81,39 +81,34 @@ class DetailHandler:
             bool: True nếu lưu thành công, False nếu có lỗi
         """
         try:
-            # Tạo tên file với timestamp
+            # Đường dẫn file JSON
             current_date = datetime.datetime.now().strftime("%Y-%m-%d")
-            file_name = f"{base_path}data_bds_{current_date}.json"
+            file_name = os.path.join(base_path, f"data_bds_{current_date}.json")
             
-            # Đọc dữ liệu hiện có từ file (nếu tồn tại)
+            # Kiểm tra file JSON hiện có
             existing_data = []
-            try:
-                if os.path.exists(file_name):
+            if os.path.exists(file_name):
+                try:
                     with open(file_name, 'r', encoding='utf-8') as file:
                         content = file.read()
                         if content:  # Kiểm tra file không rỗng
                             existing_data = json.loads(content)
-            except json.JSONDecodeError:
-                logging.warning(f"File {file_name} không đúng định dạng JSON. Tạo file mới.")
-            except Exception as e:
-                logging.warning(f"Lỗi khi đọc file: {str(e)}")
-
-            # Chuyển đổi ObjectId trong data mới
+                except json.JSONDecodeError:
+                    logging.warning(f"File {file_name} không đúng định dạng JSON. Tạo file mới.")
+            
+            # Chuyển đổi ObjectId trong dữ liệu mới
             new_data = json.loads(json_util.dumps(data))
             
             # Kết hợp dữ liệu
-            if isinstance(existing_data, list):
-                combined_data = existing_data + new_data
-            else:
-                combined_data = new_data
-                
-            # Ghi toàn bộ dữ liệu vào file
+            combined_data = existing_data + new_data
+            
+            # Ghi lại danh sách hợp lệ vào file
             with open(file_name, 'w', encoding='utf-8') as file:
                 json.dump(combined_data, file, ensure_ascii=False, indent=4)
-                
+            
             logging.info(f"Đã lưu dữ liệu thành công vào file: {file_name}")
             return True
-            
+        
         except Exception as e:
             logging.error(f"Lỗi khi lưu file JSON: {str(e)}")
             return False

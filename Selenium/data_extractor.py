@@ -168,7 +168,7 @@ class DataExtractor:
                     # Kiểm tra và xử lý dữ liệu
                     # if data['update_time']:
                     #     time_Convert = TimeConverter()
-                    #     result = time_Convert.convert_update_time(update_time=data['update_time'])
+                    #     result = time_Convert.calculate_date(update_time=data['update_time'])
 
                     #     if isinstance(result, int) and result <= 7:
                     #         # Kiểm tra dữ liệu có đầy đủ các trường quan trọng
@@ -179,7 +179,7 @@ class DataExtractor:
                     #         invalid_count += 1
                     #         logging.info(f"Dữ liệu không hợp lệ, số lần: {invalid_count}")
 
-                    #     if invalid_count >= 80:
+                    #     if invalid_count >= 20:
                     #         logging.warning(f"Đã đạt giới hạn không có dữ liệu hợp lệ trong {invalid_count} lần liên tiếp")
                     #         return all_properties
 
