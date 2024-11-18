@@ -35,7 +35,7 @@ class DataExtractor:
                     
                     soup = BeautifulSoup(driver.page_source, 'lxml')
                     # Tìm tất cả các phần tử <div> có thuộc tính pgno
-                    property_cards = soup.find_all("div", attrs={"pgno": str(page)})
+                    property_cards = soup.find_all("div", attrs={"pgno": page})
                     if not property_cards:
                         logging.warning(f"Không tìm thấy property cards trên trang {page}. Thử lại lần {retry_count + 1}")
                         retry_count += 1
@@ -128,22 +128,27 @@ class DataExtractor:
                         logging.error("Không tìm thấy phần tử link.")
                         data['link'] = ""
                         data['category_home'] = ""
-                        
-                    # Kiểm tra và xử lý dữ liệu
-                    if data['update_time']:
-                        time_Convert = TimeConverter()
-                        result = time_Convert.calculate_date(time_Convert.convert_update_time(update_time=data['update_time']))
-                        if isinstance(result, int) and result <= 7:
-                            # Kiểm tra dữ liệu có đầy đủ các trường quan trọng
+                    
+                    try:
+                        # Kiểm tra và xử lý dữ liệu
+                        if  data['update_time']:
+                            
+                            if "Đăng 1 tuần trước" not in data['update_time']:
+                                # Kiểm tra dữ liệu có đầy đủ các trường quan trọng
                                 all_properties.append(data)
-                                invalid_count = 0
-                               
-                        else:
-                            invalid_count += 1
-                            logging.info(f"Dữ liệu không hợp lệ, số lần: {invalid_count}")
-                        if invalid_count >= 20:
-                            logging.warning(f"Đã đạt giới hạn không có dữ liệu hợp lệ trong {invalid_count} lần liên tiếp")
-                            return all_properties
+                                invalid_count = 0  # Đặt lại invalid_count nếu dữ liệu hợp lệ
+                            else:
+                                invalid_count += 1
+                                logging.info(f"Dữ liệu không hợp lệ, số lần: {invalid_count}")
+                            
+                            # Nếu đạt giới hạn không hợp lệ liên tiếp, dừng vòng lặp
+                            if invalid_count >= 20:
+                                logging.warning(f"Đã đạt giới hạn không có dữ liệu hợp lệ trong {invalid_count} lần liên tiếp")
+                                return all_properties
+                    except:
+                        logging.error(f"Lỗi khi xử lý convert thời gian")
+                        
+                        
                 except Exception as e:
                     logging.error(f"Lỗi khi xử lý card: {driver.current_url}")
                     continue
