@@ -1,6 +1,0 @@
-sources:
-  - name: batdongsan_data
-    database: data-engineering-439905
-    schema: batdongsan
-    tables:
-      - name: thong_tin_ban_dat
