@@ -29,7 +29,11 @@
 
 ## Cấu hìnhh
 > nano ~/.bashrc  
-> export SET_VENV_PRJ_BDS_ARF="/home/phanmaiquockiet0512/set_venv/prj_bds_arf.sh"
-> export EXEC_VENV="source .venv/bin/activate"  
+> export SET_VENV_PRJ_BDS_ARF="/path/to/set_venv/prj_bds_arf.sh"  
+> export EXEC_VENV="source .venv/bin/activate"
+
+> [!NOTE]
+> Đối với các file còn lại bạn chỉ cần thực hiện cấu hình đúng đường dẫn , và thông tin cần cấu hình
+> > export KEY="VALUE"
 
 
