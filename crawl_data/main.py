@@ -41,7 +41,7 @@ def main():
     gcs = GCStorage(storage_client)
     base_url = "https://batdongsan.com.vn/nha-dat-ban"
 
-    with ThreadPoolExecutor(max_workers=2) as executor:
+    with ThreadPoolExecutor(max_workers=10) as executor:
         
         for page in range(1, 10051):
             page_url = f"{base_url}/p{page}?sortValue=1" if page > 1 else base_url
