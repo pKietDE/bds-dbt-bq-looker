@@ -27,7 +27,7 @@
 > python3 -m venv .venv && source .venv/bin/activate  
 > pip install folder/requirements.txt # với mỗi folder sẽ có requirements.txt
 
-## Cấu hìnhh
+## Cấu hình
 > nano ~/.bashrc  
 > export SET_VENV_PRJ_BDS_ARF="/path/to/set_venv/prj_bds_arf.sh"  
 > export EXEC_VENV="source .venv/bin/activate"
@@ -35,5 +35,38 @@
 > [!NOTE]
 > Đối với các file còn lại bạn chỉ cần thực hiện cấu hình đúng đường dẫn , và thông tin cần cấu hình
 > > export KEY="VALUE"
+
+## Sử dụng 
+1. DBT
+   - > _# Di chuyển đến thư mục chứa dự án_
+     > cd /path/to/bds_dbt/  
+     > _# Thực hiện lệnh run để thực hiện việc chuyển đổi_
+     > dbt run  
+2. crawl_data
+   - > _# di chuyển đến thư mục chứa dự án_
+     > cd /path/to/crawl_data/  
+     > _# Thực hiện việc set biến môi trường để chuẩn bị crawl data_
+     > source /path/to/file.sh
+     > _# Chay chương trình _
+     > python3 main.py
+3. airflow
+   - > _# khởi tạo cơ sở dữ liệu cho airflow_  
+     > airflow db init  
+     > _# Điều chỉnh dags_folder trong [core] của airflow là nơi đang chứa code trong thư mục airflow_bds_  
+     > vim ~/airflow/airflow.cfg
+   - Khởi tạo user trước khi sử dụng webserver:**_[link](https://airflow.apache.org/docs/apache-airflow/2.0.2/security/webserver.html)_**
+   - > _# Khởi tạo Scheduler_
+     > airflow scheduler
+   - > _# Khởi tạo webserver_
+     > airflow webserver -p port
+
+## Luồng dữ liệu 
+Crawl dữ liệu --> Data Lake (GCP) --> DBT (BigQuery) --> Looker Studio
+             |                                        ^
+             |                                        |
+             ---> Lịch lặp (Apache Airflow) ----------
+
+## Hình ảnh
+![image](https://github.com/user-attachments/assets/a7cfafad-cd25-4780-87db-8efe7a41326b)
 
 
