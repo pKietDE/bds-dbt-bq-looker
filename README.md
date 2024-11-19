@@ -24,11 +24,12 @@
 
 ## Cài đặt
 1. Sau khi clone về máy thành công tại thư mục tạo môi trường ảo để tải về các thư viện cần thiết
-> python3 -m venv .venv && source .venv/bin/activate
+> python3 -m venv .venv && source .venv/bin/activate  
 > pip install folder/requirements.txt # với mỗi folder sẽ có requirements.txt
 
 ## Cấu hìnhh
-> nano ~/.bashrc
-> export SET_VENV_PRJ_BDS_ARF="/home/phanmaiquockiet0512/set_venv/prj_bds_arf.sh" \n export EXEC_VENV="source .venv/bin/activate"
+> nano ~/.bashrc  
+> export SET_VENV_PRJ_BDS_ARF="/home/phanmaiquockiet0512/set_venv/prj_bds_arf.sh"
+> export EXEC_VENV="source .venv/bin/activate"  
 
 
