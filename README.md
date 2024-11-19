@@ -20,7 +20,7 @@
 2. crawl_data
    - Chỉ cần clone về và thực hiện việc [Cấu hình](#cấu-hình) theo hướng dẫn .
 3. airflow
-  - Chỉ cần clone về và thực hiện việc [Cấu hình](#cấu-hình) theo hướng dẫn .
+   - Chỉ cần clone về và thực hiện việc [Cấu hình](#cấu-hình) theo hướng dẫn .
 
 ## Cài đặt
 1. Sau khi clone về máy thành công tại thư mục tạo môi trường ảo để tải về các thư viện cần thiết
@@ -47,7 +47,7 @@
      > cd /path/to/crawl_data/  
      > _# Thực hiện việc set biến môi trường để chuẩn bị crawl data_  
      > source /path/to/file.sh  
-     > _# Chay chương trình _  
+     > _# Chạy chương trình _  
      > python3 main.py  
 3. airflow
    - > _# khởi tạo cơ sở dữ liệu cho airflow_  
