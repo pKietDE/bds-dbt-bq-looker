@@ -33,6 +33,9 @@
 > export EXEC_VENV="source .venv/bin/activate"
 
 > [!NOTE]
+- Cách cấu hình profiles.yml: [link](https://docs.getdbt.com/docs/core/connect-data-platform/profiles.yml)  
+
+> [!NOTE]
 > Đối với các file còn lại bạn chỉ cần thực hiện cấu hình đúng đường dẫn , và thông tin cần cấu hình
 > > export KEY="VALUE"
 
@@ -42,9 +45,8 @@
      > cd /path/to/DBT
      > pip install -r requirements.txt  
    - > _# thêm file cấu hình cho dbt_  
-     > touch ~/.dbt/profiles.yml  
-> [!NOTE]
-- Cách cấu hình : [link](https://docs.getdbt.com/docs/core/connect-data-platform/profiles.yml)  
+     > touch ~/.dbt/profiles.yml
+      - (Cấu hình profiles)[#cấu-hình]
    - > _# Di chuyển đến thư mục chứa dự án_  
      > cd /path/to/bds_dbt/  
      > _# Thực hiện lệnh run để thực hiện việc chuyển đổi_  
