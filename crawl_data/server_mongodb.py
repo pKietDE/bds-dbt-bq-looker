@@ -7,16 +7,30 @@ from ConfigParser import *
 
 
 class MongoDBClient:
-    def __init__(self, host="mongodb://localhost:27017/", timeout=5000):
+    def __init__(self,name,password,ip,is_authen = False,host="mongodb://localhost:27017/", timeout=5000):
         """
         Khởi tạo kết nối MongoDB với timeout và xử lý lỗi.
         
         Args:
+            name (str): Tên đăng nhập MongoDB
+            password (str): Mật khẩu đăng nhập MongoDB
+            ip (str): Địa chỉ IP của MongoDB
+            is_authen (bool): Cờ xác thực
             host (str): MongoDB connection string
             timeout (int): Thời gian timeout cho kết nối (ms)
         """
         try:
-            self.client = MongoClient(host, serverSelectionTimeoutMS=timeout)
+            # Tạo chuỗi kết nối MongoDB
+            if not is_authen:
+                # Kết nối không xác thực
+                self.client = MongoClient(host, serverSelectionTimeoutMS=timeout)
+            else:
+                if not (name and password and ip):
+                    logging.warning("Thiếu params cho việc đăng nhập bằng authenticate")
+                    raise ValueError("Thiếu thông tin đăng nhập")
+                # Kết nối với thông tin xác thực
+                self.client = MongoClient(f"mongodb://{name}:{password}@{ip}:27017/", serverSelectionTimeoutMS=timeout)
+
             # Kiểm tra kết nối
             self.client.admin.command('ping')
             config_reader = ConfigReader()
