@@ -46,7 +46,7 @@
      > pip install -r requirements.txt  
    - > _# thêm file cấu hình cho dbt_  
      > touch ~/.dbt/profiles.yml
-      - (Cấu hình profiles)[#cấu-hình]
+      - [Cấu hình profiles](#cấu-hình)
    - > _# Di chuyển đến thư mục chứa dự án_  
      > cd /path/to/bds_dbt/  
      > _# Thực hiện lệnh run để thực hiện việc chuyển đổi_  
