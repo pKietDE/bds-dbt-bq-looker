@@ -54,7 +54,6 @@ class DataExtractor:
             for card in property_cards:
                 try:
                     data = {}
-                    # Lấy địa chỉ
                     try:
                         address_element = card.find("span", class_="js__card-title")
                         if address_element:
@@ -94,40 +93,63 @@ class DataExtractor:
                     # Lấy thời gian cập nhật
                     try:
                         # Tìm phần tử <span> với class="re__card-published-info-published-at"
-                        update_element = card.find("span", class_="re__card-published-info-published-at")
-                        
-                        if update_element:
+                        try: 
+                            update_element = card.find("span", class_="re__card-published-info-published-at")
+
                             # Lấy giá trị thuộc tính aria-label nếu tồn tại
                             data['update_time'] = update_element.attrs.get('aria-label', '')
                             logging.info(f"Update time (span): {data['update_time']}")
-                        else:
-                            # Nếu không tìm thấy, thử tìm trong phần tử <div> với các class liên quan
-                            update_element = card.find("div", class_=["card-user-info--date-time"])
-                            if update_element:
+                        except:
+                            logging.warning("Không tìm thấy update_time (span)")
+                            try:
+                                # Nếu không tìm thấy, thử tìm trong phần tử <div> với các class liên quan
+                                update_element = card.find("div", class_=["card-user-info--date-time"])
+
                                 # Lấy giá trị thời gian từ <div>
                                 data['update_time'] = update_element.text.strip()
                                 logging.info(f"Update time (div): {data['update_time']}")
-                            else:
+                            except:
                                 logging.warning("Không tìm thấy update_time (div)")
+                                data['update_time'] = ""
                     except Exception as e:
                         logging.warning(f"Lỗi khi lấy thời gian cập nhật: {str(e)}")
                         data['update_time'] = ""
                     # Lấy link và category
                     try:
+                        # Cố gắng tìm thẻ <a> với class cụ thể
                         product_element = card.find("a", class_="js__product-link-for-product-id")
-                        href = product_element['href'] if product_element else ""
-                        if href:
-                            data['link'] = href
-                            data['category_home'] = DataExtractor.get_property_category(href)
-                            logging.info(f"Đã lấy được link: {href}")
-                            logging.info(f"Đã lấy được category_home: {data['category_home']}")
+                        if product_element:
+                            href = product_element.get("href")
+                            if href:
+                                data['link'] = href
+                                data['category_home'] = DataExtractor.get_property_category(href)
+                                logging.info(f"Đã lấy được link: {href}")
+                                logging.info(f"Đã lấy được category_home: {data['category_home']}")
+                            else:
+                                logging.warning("Không tìm thấy thuộc tính href trong thẻ a.js__product-link-for-product-id.")
                         else:
-                            data['link'] = ""
-                            data['category_home'] = ""
+                            logging.warning("Không tìm thấy thẻ a với class 'js__product-link-for-product-id'. Tiến hành thử thẻ <a> mặc định.")
+
+                            # Nếu không tìm thấy, thử với thẻ <a> mặc định
+                            product_element = card.find("a")
+                            if product_element:
+                                href = product_element.get("href")
+                                if href:
+                                    data['link'] = href
+                                    data['category_home'] = DataExtractor.get_property_category(href)
+                                    logging.info(f"Đã lấy được link: {href}")
+                                    logging.info(f"Đã lấy được category_home: {data['category_home']}")
+                                else:
+                                    logging.warning("Không tìm thấy thuộc tính href trong thẻ a.")
+                            else:
+                                logging.error("Không tìm thấy thẻ <a> mặc định.")
+                                data['link'] = ""
+                                data['category_home'] = ""
                     except Exception as e:
-                        logging.error("Không tìm thấy phần tử link.")
+                        logging.error(f"Đã gặp lỗi khi lấy link: {e}")
                         data['link'] = ""
                         data['category_home'] = ""
+
                     
                     try:
                         # Kiểm tra và xử lý dữ liệu

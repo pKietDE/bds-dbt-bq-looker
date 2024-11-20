@@ -422,3 +422,427 @@ WHERE DATE_DIFF(CURRENT_DATE(), bds.update_time, DAY) <= 7;
 [0m13:42:29.322909 [debug] [MainThread]: Command `dbt run` succeeded at 13:42:29.322809 after 14.56 seconds
 [0m13:42:29.323343 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7574656b45f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7574655ba390>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7574655ba1e0>]}
 [0m13:42:29.323702 [debug] [MainThread]: Flushing usage events
+[0m00:31:28.178387 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73c358fc1c10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73c3594d2930>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73c35943a000>]}
+
+
+============================== 00:31:28.180487 | e572e0fb-3e1d-49d8-a233-20f621fdf646 ==============================
+[0m00:31:28.180487 [info ] [MainThread]: Running with dbt=1.8.8
+[0m00:31:28.180962 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'debug': 'False', 'log_path': '/home/kiet/Documents/Project/DBT/bds_dbt/logs', 'profiles_dir': '/home/kiet/.dbt', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'log_format': 'default', 'static_parser': 'True', 'invocation_command': 'dbt debug', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m00:31:28.187913 [info ] [MainThread]: dbt version: 1.8.8
+[0m00:31:28.188293 [info ] [MainThread]: python version: 3.12.3
+[0m00:31:28.188570 [info ] [MainThread]: python path: /home/kiet/Documents/Project/DBT/.venv/bin/python3
+[0m00:31:28.188867 [info ] [MainThread]: os info: Linux-6.8.0-47-generic-x86_64-with-glibc2.39
+[0m00:31:28.743945 [info ] [MainThread]: Using profiles dir at /home/kiet/.dbt
+[0m00:31:28.744369 [info ] [MainThread]: Using profiles.yml file at /home/kiet/.dbt/profiles.yml
+[0m00:31:28.744689 [info ] [MainThread]: Using dbt_project.yml file at /home/kiet/Documents/Project/DBT/bds_dbt/dbt_project.yml
+[0m00:31:28.745029 [info ] [MainThread]: adapter type: bigquery
+[0m00:31:28.745366 [info ] [MainThread]: adapter version: 1.8.3
+[0m00:31:28.820163 [info ] [MainThread]: Configuration:
+[0m00:31:28.820546 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m00:31:28.820837 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m00:31:28.821241 [info ] [MainThread]: Required dependencies:
+[0m00:31:28.821647 [debug] [MainThread]: Executing "git --help"
+[0m00:31:28.823224 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--config-env=<name>=<envvar>] <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m00:31:28.823662 [debug] [MainThread]: STDERR: "b''"
+[0m00:31:28.823996 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m00:31:28.824310 [info ] [MainThread]: Connection:
+[0m00:31:28.824627 [info ] [MainThread]:   method: service-account
+[0m00:31:28.824931 [info ] [MainThread]:   database: data-engineering-439905
+[0m00:31:28.825235 [info ] [MainThread]:   execution_project: data-engineering-439905
+[0m00:31:28.825531 [info ] [MainThread]:   schema: batdongsan
+[0m00:31:28.825821 [info ] [MainThread]:   location: US
+[0m00:31:28.826123 [info ] [MainThread]:   priority: interactive
+[0m00:31:28.826419 [info ] [MainThread]:   maximum_bytes_billed: None
+[0m00:31:28.826713 [info ] [MainThread]:   impersonate_service_account: None
+[0m00:31:28.827020 [info ] [MainThread]:   job_retry_deadline_seconds: None
+[0m00:31:28.827315 [info ] [MainThread]:   job_retries: 1
+[0m00:31:28.827610 [info ] [MainThread]:   job_creation_timeout_seconds: None
+[0m00:31:28.827903 [info ] [MainThread]:   job_execution_timeout_seconds: 300
+[0m00:31:28.828216 [info ] [MainThread]:   timeout_seconds: 300
+[0m00:31:28.828509 [info ] [MainThread]:   client_id: None
+[0m00:31:28.828799 [info ] [MainThread]:   token_uri: None
+[0m00:31:28.829105 [info ] [MainThread]:   dataproc_region: None
+[0m00:31:28.829399 [info ] [MainThread]:   dataproc_cluster_name: None
+[0m00:31:28.829695 [info ] [MainThread]:   gcs_bucket: None
+[0m00:31:28.829994 [info ] [MainThread]:   dataproc_batch: None
+[0m00:31:28.830397 [info ] [MainThread]: Registered adapter: bigquery=1.8.3
+[0m00:31:28.831467 [debug] [MainThread]: Acquiring new bigquery connection 'debug'
+[0m00:31:28.831772 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m00:31:28.833093 [debug] [MainThread]: On debug: select 1 as id
+[0m00:31:30.041877 [debug] [MainThread]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=data-engineering-439905&j=bq:US:47af65b4-d837-493d-ba24-fed94eceb6d0&page=queryresults
+[0m00:31:30.959399 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m00:31:30.959809 [info ] [MainThread]: [32mAll checks passed![0m
+[0m00:31:30.960509 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": true, "command_wall_clock_time": 2.8200548, "process_user_time": 2.297864, "process_kernel_time": 0.125501, "process_mem_max_rss": "201016", "process_out_blocks": "24", "process_in_blocks": "0"}
+[0m00:31:30.961057 [debug] [MainThread]: Command `dbt debug` succeeded at 00:31:30.960939 after 2.82 seconds
+[0m00:31:30.961402 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m00:31:30.961736 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73c33a7ed310>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73c33a87a090>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73c3539273e0>]}
+[0m00:31:30.962494 [debug] [MainThread]: Flushing usage events
+[0m00:31:39.250474 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c869e020890>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c869e267140>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c869e021370>]}
+
+
+============================== 00:31:39.252605 | 73cb61e7-7139-499d-b337-64a344c3f45c ==============================
+[0m00:31:39.252605 [info ] [MainThread]: Running with dbt=1.8.8
+[0m00:31:39.253086 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/home/kiet/.dbt', 'fail_fast': 'False', 'version_check': 'True', 'log_path': '/home/kiet/Documents/Project/DBT/bds_dbt/logs', 'debug': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'introspect': 'True', 'invocation_command': 'dbt run', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m00:31:39.889090 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '73cb61e7-7139-499d-b337-64a344c3f45c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c8680004650>]}
+[0m00:31:39.933223 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '73cb61e7-7139-499d-b337-64a344c3f45c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c867bc1a060>]}
+[0m00:31:39.933729 [info ] [MainThread]: Registered adapter: bigquery=1.8.3
+[0m00:31:39.941806 [debug] [MainThread]: checksum: ec53e341a936509427e16df1c646386a84befec52c1957e3f4359fbc36fc93f5, vars: {}, profile: , target: , version: 1.8.8
+[0m00:31:40.030301 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m00:31:40.030842 [debug] [MainThread]: Partial parsing: updated file: bds_dbt://models/views/quantity_bds_category_hcm.sql
+[0m00:31:40.226566 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '73cb61e7-7139-499d-b337-64a344c3f45c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c867b762300>]}
+[0m00:31:40.297760 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '73cb61e7-7139-499d-b337-64a344c3f45c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c867ba4bef0>]}
+[0m00:31:40.298167 [info ] [MainThread]: Found 10 models, 9 analyses, 1 source, 482 macros
+[0m00:31:40.298476 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '73cb61e7-7139-499d-b337-64a344c3f45c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c867ba015b0>]}
+[0m00:31:40.300220 [info ] [MainThread]: 
+[0m00:31:40.300812 [debug] [MainThread]: Acquiring new bigquery connection 'master'
+[0m00:31:40.304684 [debug] [ThreadPool]: Acquiring new bigquery connection 'list_data-engineering-439905'
+[0m00:31:40.305188 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:31:41.200862 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_data-engineering-439905, now list_data-engineering-439905_batdongsan)
+[0m00:31:41.201322 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m00:31:42.020677 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '73cb61e7-7139-499d-b337-64a344c3f45c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c869e907920>]}
+[0m00:31:42.021245 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m00:31:42.021642 [info ] [MainThread]: 
+[0m00:31:42.033746 [debug] [Thread-1 (]: Began running node model.bds_dbt.dim_bds
+[0m00:31:42.034255 [info ] [Thread-1 (]: 1 of 10 START sql table model batdongsan.dim_bds ............................... [RUN]
+[0m00:31:42.034660 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_data-engineering-439905_batdongsan, now model.bds_dbt.dim_bds)
+[0m00:31:42.034991 [debug] [Thread-1 (]: Began compiling node model.bds_dbt.dim_bds
+[0m00:31:42.044241 [debug] [Thread-1 (]: Writing injected SQL for node "model.bds_dbt.dim_bds"
+[0m00:31:42.044788 [debug] [Thread-1 (]: Began executing node model.bds_dbt.dim_bds
+[0m00:31:42.065064 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m00:31:42.858455 [debug] [Thread-1 (]: Writing runtime sql for node "model.bds_dbt.dim_bds"
+[0m00:31:42.859127 [debug] [Thread-1 (]: On model.bds_dbt.dim_bds: /* {"app": "dbt", "dbt_version": "1.8.8", "profile_name": "bds_dbt", "target_name": "dev", "node_id": "model.bds_dbt.dim_bds"} */
+
+  
+    
+
+    create or replace table `data-engineering-439905`.`batdongsan`.`dim_bds`
+      
+    partition by update_time
+    cluster by city, district
+
+    OPTIONS()
+    as (
+      
+
+WITH bds_data AS (
+    SELECT * 
+    FROM `data-engineering-439905`.`batdongsan`.`thong_tin_ban_dat` as bds
+    WHERE bds.update_time NOT IN (' ', '')
+)
+
+SELECT 
+    CASE WHEN TRIM(address_text) = '' THEN 'không tìm thấy' ELSE LOWER(address_text) END as address
+    ,CASE WHEN TRIM(district) = '' THEN 'không tìm thấy' ELSE LOWER(district) END as district
+    ,CASE WHEN TRIM(city) = '' THEN 'không tìm thấy' ELSE LOWER(city) END as city
+    ,
+    CASE 
+        WHEN REGEXP_REPLACE(price, r',', '.') LIKE '%tỷ%' 
+        THEN SAFE_CAST(REGEXP_REPLACE(REGEXP_REPLACE(price, r',', ''), r' tỷ', '') AS DECIMAL) * 1000000000
+        WHEN REGEXP_REPLACE(price, r',', '.') LIKE '%triệu%' 
+        THEN SAFE_CAST(REGEXP_REPLACE(REGEXP_REPLACE(price, r',', ''), r' triệu', '') AS DECIMAL) * 1000000
+        ELSE 0.0
+    END
+ as price
+    ,CASE WHEN TRIM(price_m2) = '' THEN 'giá thỏa thuận' ELSE LOWER(REGEXP_REPLACE(price_m2, r'triệu', 'tr')) END as price_m2
+    ,CASE WHEN TRIM(area) = '' THEN 0 ELSE CAST(TRIM(REGEXP_REPLACE(LOWER(area), r'[^0-9]', '')) AS INT64) END as area
+    ,CASE WHEN TRIM(area) = '' THEN 'không tìm thấy' ELSE REGEXP_REPLACE(LOWER(area), r'[^a-zA-Z\s]', '') END as area_type
+    ,
+    CASE
+        WHEN REGEXP_CONTAINS(update_time, r'^\d{2}/\d{2}/\d{4}$') THEN PARSE_DATE('%d/%m/%Y', update_time)
+        WHEN REGEXP_CONTAINS(update_time, r'^\d{4}-\d{2}-\d{2}$') THEN DATE(update_time)
+    END 
+ as update_time
+    ,LOWER(link) as link
+    ,
+    CASE 
+        WHEN LOWER(category_home) LIKE '%ban nha mat pho%' THEN 'ban nha mat pho'
+        WHEN LOWER(category_home) LIKE '%ban can ho chung cu%' THEN 'ban can ho chung cu'
+        WHEN LOWER(category_home) LIKE '%ban dat%' THEN 'ban dat'
+        WHEN LOWER(category_home) LIKE '%ban shophouse%' THEN 'ban shophouse'
+        WHEN LOWER(category_home) LIKE '%ban kho nha xuong%' THEN 'ban kho nha xuong'
+        WHEN LOWER(category_home) LIKE '%ban trang trai khu nghi duong' THEN 'ban trang trai khu nghi duong'
+        WHEN LOWER(category_home) LIKE '%ban condotel%' THEN 'ban condotel'
+        WHEN LOWER(category_home) LIKE '%ban loai bat dong san khac%' THEN 'ban loai bat dong san khac'
+        WHEN LOWER(category_home) LIKE '%ban nha biet thu%' THEN 'ban nha biet thu'
+        WHEN LOWER(category_home) LIKE '%ban nha rieng%' THEN 'ban nha biet thu'
+        ELSE 'khác'
+    END
+ as category_home
+FROM bds_data
+    );
+  
+[0m00:31:43.554801 [debug] [Thread-1 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=data-engineering-439905&j=bq:US:c8daf018-d52e-420c-8b38-ec6e5aa6c023&page=queryresults
+[0m00:31:50.336348 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '73cb61e7-7139-499d-b337-64a344c3f45c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c869e730c50>]}
+[0m00:31:50.337536 [info ] [Thread-1 (]: 1 of 10 OK created sql table model batdongsan.dim_bds .......................... [[32mCREATE TABLE (190.4k rows, 70.6 MiB processed)[0m in 8.30s]
+[0m00:31:50.338252 [debug] [Thread-1 (]: Finished running node model.bds_dbt.dim_bds
+[0m00:31:50.339097 [debug] [Thread-3 (]: Began running node model.bds_dbt.area_of_category
+[0m00:31:50.339560 [info ] [Thread-3 (]: 2 of 10 START sql view model batdongsan.area_of_category ....................... [RUN]
+[0m00:31:50.340032 [debug] [Thread-4 (]: Began running node model.bds_dbt.avg_area_each_category
+[0m00:31:50.340653 [debug] [Thread-2 (]: Began running node model.bds_dbt.avg_house_area
+[0m00:31:50.341355 [debug] [Thread-3 (]: Acquiring new bigquery connection 'model.bds_dbt.area_of_category'
+[0m00:31:50.341873 [debug] [Thread-1 (]: Began running node model.bds_dbt.avg_price_each_city
+[0m00:31:50.342526 [info ] [Thread-4 (]: 3 of 10 START sql view model batdongsan.avg_area_each_category ................. [RUN]
+[0m00:31:50.343190 [info ] [Thread-2 (]: 4 of 10 START sql view model batdongsan.avg_house_area ......................... [RUN]
+[0m00:31:50.343826 [debug] [Thread-3 (]: Began compiling node model.bds_dbt.area_of_category
+[0m00:31:50.344598 [info ] [Thread-1 (]: 5 of 10 START sql view model batdongsan.avg_price_each_city .................... [RUN]
+[0m00:31:50.345302 [debug] [Thread-4 (]: Acquiring new bigquery connection 'model.bds_dbt.avg_area_each_category'
+[0m00:31:50.345766 [debug] [Thread-2 (]: Acquiring new bigquery connection 'model.bds_dbt.avg_house_area'
+[0m00:31:50.409037 [debug] [Thread-3 (]: Writing injected SQL for node "model.bds_dbt.area_of_category"
+[0m00:31:50.409664 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.bds_dbt.dim_bds, now model.bds_dbt.avg_price_each_city)
+[0m00:31:50.410079 [debug] [Thread-4 (]: Began compiling node model.bds_dbt.avg_area_each_category
+[0m00:31:50.410433 [debug] [Thread-2 (]: Began compiling node model.bds_dbt.avg_house_area
+[0m00:31:50.410877 [debug] [Thread-1 (]: Began compiling node model.bds_dbt.avg_price_each_city
+[0m00:31:50.413220 [debug] [Thread-4 (]: Writing injected SQL for node "model.bds_dbt.avg_area_each_category"
+[0m00:31:50.413629 [debug] [Thread-3 (]: Began executing node model.bds_dbt.area_of_category
+[0m00:31:50.415658 [debug] [Thread-2 (]: Writing injected SQL for node "model.bds_dbt.avg_house_area"
+[0m00:31:50.417595 [debug] [Thread-1 (]: Writing injected SQL for node "model.bds_dbt.avg_price_each_city"
+[0m00:31:50.434272 [debug] [Thread-3 (]: Writing runtime sql for node "model.bds_dbt.area_of_category"
+[0m00:31:50.434764 [debug] [Thread-4 (]: Began executing node model.bds_dbt.avg_area_each_category
+[0m00:31:50.435369 [debug] [Thread-1 (]: Began executing node model.bds_dbt.avg_price_each_city
+[0m00:31:50.437352 [debug] [Thread-4 (]: Writing runtime sql for node "model.bds_dbt.avg_area_each_category"
+[0m00:31:50.437694 [debug] [Thread-2 (]: Began executing node model.bds_dbt.avg_house_area
+[0m00:31:50.439452 [debug] [Thread-1 (]: Writing runtime sql for node "model.bds_dbt.avg_price_each_city"
+[0m00:31:50.439800 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m00:31:50.441622 [debug] [Thread-2 (]: Writing runtime sql for node "model.bds_dbt.avg_house_area"
+[0m00:31:50.442069 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m00:31:50.443350 [debug] [Thread-3 (]: On model.bds_dbt.area_of_category: /* {"app": "dbt", "dbt_version": "1.8.8", "profile_name": "bds_dbt", "target_name": "dev", "node_id": "model.bds_dbt.area_of_category"} */
+
+
+  create or replace view `data-engineering-439905`.`batdongsan`.`area_of_category`
+  OPTIONS()
+  as SELECT distinct bds.category_home
+    , bds.area_type
+    , sum(area) as sum_area    
+FROM `data-engineering-439905`.`batdongsan`.`dim_bds` as bds
+WHERE area_type not like '%không tìm thấy%'
+GROUP BY bds.category_home , bds.area_type;
+
+
+[0m00:31:50.443808 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m00:31:50.466782 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m00:31:50.468196 [debug] [Thread-4 (]: On model.bds_dbt.avg_area_each_category: /* {"app": "dbt", "dbt_version": "1.8.8", "profile_name": "bds_dbt", "target_name": "dev", "node_id": "model.bds_dbt.avg_area_each_category"} */
+
+
+  create or replace view `data-engineering-439905`.`batdongsan`.`avg_area_each_category`
+  OPTIONS()
+  as SELECT distinct bds.category_home
+    , avg(area) as avg_area    
+FROM `data-engineering-439905`.`batdongsan`.`dim_bds` as bds
+GROUP BY bds.category_home   
+ORDER BY avg_area DESC;
+
+
+[0m00:31:50.469915 [debug] [Thread-1 (]: On model.bds_dbt.avg_price_each_city: /* {"app": "dbt", "dbt_version": "1.8.8", "profile_name": "bds_dbt", "target_name": "dev", "node_id": "model.bds_dbt.avg_price_each_city"} */
+
+
+  create or replace view `data-engineering-439905`.`batdongsan`.`avg_price_each_city`
+  OPTIONS()
+  as SELECT *
+FROM(
+    SELECT distinct bds.city as city
+        , avg(price) as avg_price    
+    FROM `data-engineering-439905`.`batdongsan`.`dim_bds` as bds
+    GROUP BY bds.city 
+) as tb1
+WHERE city NOT LIKE '%Không tìm thấy%' and  avg_price > 0;
+
+
+[0m00:31:50.471328 [debug] [Thread-2 (]: On model.bds_dbt.avg_house_area: /* {"app": "dbt", "dbt_version": "1.8.8", "profile_name": "bds_dbt", "target_name": "dev", "node_id": "model.bds_dbt.avg_house_area"} */
+
+
+  create or replace view `data-engineering-439905`.`batdongsan`.`avg_house_area`
+  OPTIONS()
+  as SELECT distinct bds.city
+    , avg(price) as avg_price    
+FROM `data-engineering-439905`.`batdongsan`.`dim_bds` as bds
+GROUP BY bds.city;
+
+
+[0m00:31:51.542496 [debug] [Thread-3 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=data-engineering-439905&j=bq:US:4e326d3f-8cc9-460c-bde9-c6978b4258eb&page=queryresults
+[0m00:31:51.543173 [debug] [Thread-1 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=data-engineering-439905&j=bq:US:0d565aa7-0150-429d-a3a3-8ca1ae66a0a3&page=queryresults
+[0m00:31:51.545052 [debug] [Thread-2 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=data-engineering-439905&j=bq:US:92026f8a-7b54-4a33-aaae-8ccc1f454a5d&page=queryresults
+[0m00:31:51.546291 [debug] [Thread-4 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=data-engineering-439905&j=bq:US:7cb202aa-51b2-41bd-b701-c4c5a575af1d&page=queryresults
+[0m00:31:52.261735 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '73cb61e7-7139-499d-b337-64a344c3f45c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c867b305ac0>]}
+[0m00:31:52.263421 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '73cb61e7-7139-499d-b337-64a344c3f45c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c867b859010>]}
+[0m00:31:52.265003 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '73cb61e7-7139-499d-b337-64a344c3f45c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c869dd8dbe0>]}
+[0m00:31:52.265587 [info ] [Thread-2 (]: 4 of 10 OK created sql view model batdongsan.avg_house_area .................... [[32mCREATE VIEW (0 processed)[0m in 1.92s]
+[0m00:31:52.266193 [info ] [Thread-4 (]: 3 of 10 OK created sql view model batdongsan.avg_area_each_category ............ [[32mCREATE VIEW (0 processed)[0m in 1.92s]
+[0m00:31:52.266706 [info ] [Thread-3 (]: 2 of 10 OK created sql view model batdongsan.area_of_category .................. [[32mCREATE VIEW (0 processed)[0m in 1.92s]
+[0m00:31:52.267512 [debug] [Thread-2 (]: Finished running node model.bds_dbt.avg_house_area
+[0m00:31:52.268106 [debug] [Thread-4 (]: Finished running node model.bds_dbt.avg_area_each_category
+[0m00:31:52.268761 [debug] [Thread-3 (]: Finished running node model.bds_dbt.area_of_category
+[0m00:31:52.269247 [debug] [Thread-2 (]: Began running node model.bds_dbt.max_price_city
+[0m00:31:52.269734 [debug] [Thread-4 (]: Began running node model.bds_dbt.quantity_bds_category_hcm
+[0m00:31:52.270165 [debug] [Thread-3 (]: Began running node model.bds_dbt.quantity_bds_hcm
+[0m00:31:52.270628 [info ] [Thread-2 (]: 6 of 10 START sql view model batdongsan.max_price_city ......................... [RUN]
+[0m00:31:52.271114 [info ] [Thread-4 (]: 7 of 10 START sql view model batdongsan.quantity_bds_category_hcm .............. [RUN]
+[0m00:31:52.271556 [info ] [Thread-3 (]: 8 of 10 START sql view model batdongsan.quantity_bds_hcm ....................... [RUN]
+[0m00:31:52.272012 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.bds_dbt.avg_house_area, now model.bds_dbt.max_price_city)
+[0m00:31:52.272677 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.bds_dbt.avg_area_each_category, now model.bds_dbt.quantity_bds_category_hcm)
+[0m00:31:52.273186 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.bds_dbt.area_of_category, now model.bds_dbt.quantity_bds_hcm)
+[0m00:31:52.275077 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '73cb61e7-7139-499d-b337-64a344c3f45c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c867b3d0890>]}
+[0m00:31:52.275448 [debug] [Thread-2 (]: Began compiling node model.bds_dbt.max_price_city
+[0m00:31:52.275823 [debug] [Thread-4 (]: Began compiling node model.bds_dbt.quantity_bds_category_hcm
+[0m00:31:52.276185 [debug] [Thread-3 (]: Began compiling node model.bds_dbt.quantity_bds_hcm
+[0m00:31:52.276698 [info ] [Thread-1 (]: 5 of 10 OK created sql view model batdongsan.avg_price_each_city ............... [[32mCREATE VIEW (0 processed)[0m in 1.87s]
+[0m00:31:52.279152 [debug] [Thread-2 (]: Writing injected SQL for node "model.bds_dbt.max_price_city"
+[0m00:31:52.281676 [debug] [Thread-4 (]: Writing injected SQL for node "model.bds_dbt.quantity_bds_category_hcm"
+[0m00:31:52.283794 [debug] [Thread-3 (]: Writing injected SQL for node "model.bds_dbt.quantity_bds_hcm"
+[0m00:31:52.284482 [debug] [Thread-1 (]: Finished running node model.bds_dbt.avg_price_each_city
+[0m00:31:52.285146 [debug] [Thread-1 (]: Began running node model.bds_dbt.quantity_each_category
+[0m00:31:52.285956 [debug] [Thread-2 (]: Began executing node model.bds_dbt.max_price_city
+[0m00:31:52.285619 [info ] [Thread-1 (]: 9 of 10 START sql view model batdongsan.quantity_each_category ................. [RUN]
+[0m00:31:52.286414 [debug] [Thread-4 (]: Began executing node model.bds_dbt.quantity_bds_category_hcm
+[0m00:31:52.288446 [debug] [Thread-2 (]: Writing runtime sql for node "model.bds_dbt.max_price_city"
+[0m00:31:52.288845 [debug] [Thread-3 (]: Began executing node model.bds_dbt.quantity_bds_hcm
+[0m00:31:52.289259 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.bds_dbt.avg_price_each_city, now model.bds_dbt.quantity_each_category)
+[0m00:31:52.291257 [debug] [Thread-4 (]: Writing runtime sql for node "model.bds_dbt.quantity_bds_category_hcm"
+[0m00:31:52.293159 [debug] [Thread-3 (]: Writing runtime sql for node "model.bds_dbt.quantity_bds_hcm"
+[0m00:31:52.293606 [debug] [Thread-1 (]: Began compiling node model.bds_dbt.quantity_each_category
+[0m00:31:52.294033 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m00:31:52.296487 [debug] [Thread-1 (]: Writing injected SQL for node "model.bds_dbt.quantity_each_category"
+[0m00:31:52.296876 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m00:31:52.297377 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m00:31:52.298567 [debug] [Thread-2 (]: On model.bds_dbt.max_price_city: /* {"app": "dbt", "dbt_version": "1.8.8", "profile_name": "bds_dbt", "target_name": "dev", "node_id": "model.bds_dbt.max_price_city"} */
+
+
+  create or replace view `data-engineering-439905`.`batdongsan`.`max_price_city`
+  OPTIONS()
+  as with final as (
+    SELECT *
+        , ROW_NUMBER() OVER(ORDER BY quantity_transaction DESC) as row_number
+    FROM(
+        SELECT bds.city
+        , count(*) AS quantity_transaction 
+        FROM `data-engineering-439905`.`batdongsan`.`dim_bds` AS bds
+        GROUP BY bds.city
+    ) as tb1
+)
+SELECT city,quantity_transaction
+FROM final
+where row_number = 1;
+
+
+[0m00:31:52.299802 [debug] [Thread-4 (]: On model.bds_dbt.quantity_bds_category_hcm: /* {"app": "dbt", "dbt_version": "1.8.8", "profile_name": "bds_dbt", "target_name": "dev", "node_id": "model.bds_dbt.quantity_bds_category_hcm"} */
+
+
+  create or replace view `data-engineering-439905`.`batdongsan`.`quantity_bds_category_hcm`
+  OPTIONS()
+  as SELECT distinct 
+    CASE 
+        WHEN LOWER(bds.category_home) LIKE '%ban nha mat pho%' THEN 'ban nha mat pho'
+        WHEN LOWER(bds.category_home) LIKE '%ban can ho chung cu%' THEN 'ban can ho chung cu'
+        WHEN LOWER(bds.category_home) LIKE '%ban dat%' THEN 'ban dat'
+        WHEN LOWER(bds.category_home) LIKE '%ban shophouse%' THEN 'ban shophouse'
+        WHEN LOWER(bds.category_home) LIKE '%ban kho nha xuong%' THEN 'ban kho nha xuong'
+        WHEN LOWER(bds.category_home) LIKE '%ban trang trai khu nghi duong' THEN 'ban trang trai khu nghi duong'
+        WHEN LOWER(bds.category_home) LIKE '%ban condotel%' THEN 'ban condotel'
+        WHEN LOWER(bds.category_home) LIKE '%ban loai bat dong san khac%' THEN 'ban loai bat dong san khac'
+        WHEN LOWER(bds.category_home) LIKE '%ban nha biet thu%' THEN 'ban nha biet thu'
+        WHEN LOWER(bds.category_home) LIKE '%ban nha rieng%' THEN 'ban nha biet thu'
+        ELSE 'khác'
+    END
+ as category_home
+    , count(*) as quantity_bds_hcm    
+FROM `data-engineering-439905`.`batdongsan`.`dim_bds` as bds
+where bds.city = "Hồ Chí Minh"
+GROUP BY 
+    CASE 
+        WHEN LOWER(bds.category_home) LIKE '%ban nha mat pho%' THEN 'ban nha mat pho'
+        WHEN LOWER(bds.category_home) LIKE '%ban can ho chung cu%' THEN 'ban can ho chung cu'
+        WHEN LOWER(bds.category_home) LIKE '%ban dat%' THEN 'ban dat'
+        WHEN LOWER(bds.category_home) LIKE '%ban shophouse%' THEN 'ban shophouse'
+        WHEN LOWER(bds.category_home) LIKE '%ban kho nha xuong%' THEN 'ban kho nha xuong'
+        WHEN LOWER(bds.category_home) LIKE '%ban trang trai khu nghi duong' THEN 'ban trang trai khu nghi duong'
+        WHEN LOWER(bds.category_home) LIKE '%ban condotel%' THEN 'ban condotel'
+        WHEN LOWER(bds.category_home) LIKE '%ban loai bat dong san khac%' THEN 'ban loai bat dong san khac'
+        WHEN LOWER(bds.category_home) LIKE '%ban nha biet thu%' THEN 'ban nha biet thu'
+        WHEN LOWER(bds.category_home) LIKE '%ban nha rieng%' THEN 'ban nha biet thu'
+        ELSE 'khác'
+    END
+;
+
+
+[0m00:31:52.300234 [debug] [Thread-1 (]: Began executing node model.bds_dbt.quantity_each_category
+[0m00:31:52.324448 [debug] [Thread-3 (]: On model.bds_dbt.quantity_bds_hcm: /* {"app": "dbt", "dbt_version": "1.8.8", "profile_name": "bds_dbt", "target_name": "dev", "node_id": "model.bds_dbt.quantity_bds_hcm"} */
+
+
+  create or replace view `data-engineering-439905`.`batdongsan`.`quantity_bds_hcm`
+  OPTIONS()
+  as SELECT distinct bds.city
+    , count(*) as quantity_bds_hcm    
+FROM `data-engineering-439905`.`batdongsan`.`dim_bds` as bds
+where bds.city = "Hồ Chí Minh"
+GROUP BY bds.city;
+
+
+[0m00:31:52.351991 [debug] [Thread-1 (]: Writing runtime sql for node "model.bds_dbt.quantity_each_category"
+[0m00:31:52.377134 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m00:31:52.378903 [debug] [Thread-1 (]: On model.bds_dbt.quantity_each_category: /* {"app": "dbt", "dbt_version": "1.8.8", "profile_name": "bds_dbt", "target_name": "dev", "node_id": "model.bds_dbt.quantity_each_category"} */
+
+
+  create or replace view `data-engineering-439905`.`batdongsan`.`quantity_each_category`
+  OPTIONS()
+  as SELECT distinct bds.category_home
+    , count(*) as quantity_bds    
+FROM `data-engineering-439905`.`batdongsan`.`dim_bds` as bds
+GROUP BY bds.category_home   
+ORDER BY quantity_bds DESC;
+
+
+[0m00:31:53.180229 [debug] [Thread-2 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=data-engineering-439905&j=bq:US:aa112070-6adf-41ed-bf8c-726de0a1f9d7&page=queryresults
+[0m00:31:53.197871 [debug] [Thread-1 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=data-engineering-439905&j=bq:US:69e694d4-1c6f-4533-9f20-44f09c77a079&page=queryresults
+[0m00:31:53.264425 [debug] [Thread-4 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=data-engineering-439905&j=bq:US:fb2c1dea-ef4c-4a0f-861a-54d4780a1698&page=queryresults
+[0m00:31:53.286254 [debug] [Thread-3 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=data-engineering-439905&j=bq:US:4b0f5775-7e14-4ec9-8a8b-b33ee35005d4&page=queryresults
+[0m00:31:54.001996 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '73cb61e7-7139-499d-b337-64a344c3f45c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c867b3ecc50>]}
+[0m00:31:54.003746 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '73cb61e7-7139-499d-b337-64a344c3f45c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c867b35e8a0>]}
+[0m00:31:54.004401 [info ] [Thread-1 (]: 9 of 10 OK created sql view model batdongsan.quantity_each_category ............ [[32mCREATE VIEW (0 processed)[0m in 1.71s]
+[0m00:31:54.005550 [debug] [Thread-1 (]: Finished running node model.bds_dbt.quantity_each_category
+[0m00:31:54.005995 [debug] [Thread-1 (]: Began running node model.bds_dbt.quantity_sale_home_in_week
+[0m00:31:54.008473 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '73cb61e7-7139-499d-b337-64a344c3f45c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c867b3d4c20>]}
+[0m00:31:54.006784 [info ] [Thread-2 (]: 6 of 10 OK created sql view model batdongsan.max_price_city .................... [[32mCREATE VIEW (0 processed)[0m in 1.73s]
+[0m00:31:54.010624 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '73cb61e7-7139-499d-b337-64a344c3f45c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c867b3e1880>]}
+[0m00:31:54.008902 [info ] [Thread-1 (]: 10 of 10 START sql view model batdongsan.quantity_sale_home_in_week ............ [RUN]
+[0m00:31:54.011313 [info ] [Thread-3 (]: 8 of 10 OK created sql view model batdongsan.quantity_bds_hcm .................. [[32mCREATE VIEW (0 processed)[0m in 1.74s]
+[0m00:31:54.011873 [debug] [Thread-2 (]: Finished running node model.bds_dbt.max_price_city
+[0m00:31:54.012403 [info ] [Thread-4 (]: 7 of 10 OK created sql view model batdongsan.quantity_bds_category_hcm ......... [[32mCREATE VIEW (0 processed)[0m in 1.74s]
+[0m00:31:54.012817 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.bds_dbt.quantity_each_category, now model.bds_dbt.quantity_sale_home_in_week)
+[0m00:31:54.013333 [debug] [Thread-3 (]: Finished running node model.bds_dbt.quantity_bds_hcm
+[0m00:31:54.013926 [debug] [Thread-4 (]: Finished running node model.bds_dbt.quantity_bds_category_hcm
+[0m00:31:54.014306 [debug] [Thread-1 (]: Began compiling node model.bds_dbt.quantity_sale_home_in_week
+[0m00:31:54.016369 [debug] [Thread-1 (]: Writing injected SQL for node "model.bds_dbt.quantity_sale_home_in_week"
+[0m00:31:54.016822 [debug] [Thread-1 (]: Began executing node model.bds_dbt.quantity_sale_home_in_week
+[0m00:31:54.020439 [debug] [Thread-1 (]: Writing runtime sql for node "model.bds_dbt.quantity_sale_home_in_week"
+[0m00:31:54.020940 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m00:31:54.022101 [debug] [Thread-1 (]: On model.bds_dbt.quantity_sale_home_in_week: /* {"app": "dbt", "dbt_version": "1.8.8", "profile_name": "bds_dbt", "target_name": "dev", "node_id": "model.bds_dbt.quantity_sale_home_in_week"} */
+
+
+  create or replace view `data-engineering-439905`.`batdongsan`.`quantity_sale_home_in_week`
+  OPTIONS()
+  as SELECT CAST(COUNT(DISTINCT bds.address) as INT64 ) AS unique_values_in_week
+FROM `data-engineering-439905`.`batdongsan`.`dim_bds` AS bds
+WHERE DATE_DIFF(CURRENT_DATE(), bds.update_time, DAY) <= 7;
+
+
+[0m00:31:54.921350 [debug] [Thread-1 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=data-engineering-439905&j=bq:US:be667eef-148b-4495-81f1-4f6a4501116d&page=queryresults
+[0m00:31:55.639470 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '73cb61e7-7139-499d-b337-64a344c3f45c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c867b3e2ba0>]}
+[0m00:31:55.640028 [info ] [Thread-1 (]: 10 of 10 OK created sql view model batdongsan.quantity_sale_home_in_week ....... [[32mCREATE VIEW (0 processed)[0m in 1.63s]
+[0m00:31:55.640575 [debug] [Thread-1 (]: Finished running node model.bds_dbt.quantity_sale_home_in_week
+[0m00:31:55.641787 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m00:31:55.642140 [debug] [MainThread]: Connection 'model.bds_dbt.quantity_sale_home_in_week' was properly closed.
+[0m00:31:55.642400 [debug] [MainThread]: Connection 'model.bds_dbt.quantity_bds_hcm' was properly closed.
+[0m00:31:55.642666 [debug] [MainThread]: Connection 'model.bds_dbt.quantity_bds_category_hcm' was properly closed.
+[0m00:31:55.642981 [debug] [MainThread]: Connection 'model.bds_dbt.max_price_city' was properly closed.
+[0m00:31:55.643317 [info ] [MainThread]: 
+[0m00:31:55.643635 [info ] [MainThread]: Finished running 1 table model, 9 view models in 0 hours 0 minutes and 15.34 seconds (15.34s).
+[0m00:31:55.645317 [debug] [MainThread]: Command end result
+[0m00:31:55.666866 [info ] [MainThread]: 
+[0m00:31:55.667316 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m00:31:55.667622 [info ] [MainThread]: 
+[0m00:31:55.667941 [info ] [MainThread]: Done. PASS=10 WARN=0 ERROR=0 SKIP=0 TOTAL=10
+[0m00:31:55.668583 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 16.456787, "process_user_time": 3.30982, "process_kernel_time": 0.149991, "process_mem_max_rss": "211900", "process_in_blocks": "88", "process_out_blocks": "3360"}
+[0m00:31:55.669079 [debug] [MainThread]: Command `dbt run` succeeded at 00:31:55.668993 after 16.46 seconds
+[0m00:31:55.669389 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c869dd64aa0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c867b724830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c867b3ecc50>]}
+[0m00:31:55.669720 [debug] [MainThread]: Flushing usage events
