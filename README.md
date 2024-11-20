@@ -42,7 +42,8 @@
      > cd /path/to/DBT
      > pip install -r requirements.txt  
    - > _# thêm file cấu hình cho dbt_  
-     > touch ~/.dbt/profiles.yml  
+     > touch ~/.dbt/profiles.yml
+     
      > [!NOTE]
      - Cách cấu hình : [link](https://docs.getdbt.com/docs/core/connect-data-platform/profiles.yml)  
    - > _# Di chuyển đến thư mục chứa dự án_  
