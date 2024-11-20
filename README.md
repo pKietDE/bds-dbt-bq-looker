@@ -33,7 +33,7 @@
 > export EXEC_VENV="source .venv/bin/activate"
 
 > [!NOTE]
-- Cách cấu hình profiles.yml: [link](https://docs.getdbt.com/docs/core/connect-data-platform/profiles.yml)  
+> Cách cấu hình profiles.yml: [link](https://docs.getdbt.com/docs/core/connect-data-platform/profiles.yml)  
 
 > [!NOTE]
 > Đối với các file còn lại bạn chỉ cần thực hiện cấu hình đúng đường dẫn , và thông tin cần cấu hình
