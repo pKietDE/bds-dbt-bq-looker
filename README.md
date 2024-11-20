@@ -38,18 +38,25 @@
 
 ## Sử dụng 
 1. DBT
+   - > _# Install requirements_  
+     > cd /path/to/DBT
+     > pip install -r requirements.txt  
+   - > _# thêm file cấu hình cho dbt_  
+     > touch ~/.dbt/profiles.yml
+     > [!NOTIFICE]
+     - Cách cấu hình : [link](https://docs.getdbt.com/docs/core/connect-data-platform/profiles.yml)
    - > _# Di chuyển đến thư mục chứa dự án_  
      > cd /path/to/bds_dbt/  
      > _# Thực hiện lệnh run để thực hiện việc chuyển đổi_  
      > dbt run  
-2. crawl_data
+3. crawl_data
    - > _# di chuyển đến thư mục chứa dự án_
      > cd /path/to/crawl_data/  
      > _# Thực hiện việc set biến môi trường để chuẩn bị crawl data_  
      > source /path/to/file.sh  
      > _# Chạy chương trình _  
      > python3 main.py  
-3. airflow
+4. airflow
    - > _# khởi tạo cơ sở dữ liệu cho airflow_  
      > airflow db init  
      > _# Điều chỉnh dags_folder trong [core] của airflow là nơi đang chứa code trong thư mục airflow_bds_  
