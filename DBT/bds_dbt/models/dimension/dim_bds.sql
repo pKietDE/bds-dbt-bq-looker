@@ -8,7 +8,11 @@
 ) }}
 
 WITH bds_data AS (
+<<<<<<< HEAD
     SELECT * 
+=======
+    SELECT distinct * 
+>>>>>>> cb91e62a99809a1dd85fc85ea296fa2c02d98410
     FROM {{source('batdongsan_data', 'thong_tin_ban_dat')}} as bds
     WHERE bds.update_time NOT IN (' ', '')
 )

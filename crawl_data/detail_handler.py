@@ -15,10 +15,21 @@ from ConfigParser import *
 
 class DetailHandler:
     def __init__(self, driver, page):
+<<<<<<< HEAD
         self.driver = driver
         self.client_mongo = MongoDBClient()
         self.page = page
         config = ConfigReader()
+=======
+        config = ConfigReader()
+        USER_NAME = config.get_config("MONGO","USER_NAME")
+        PASSWORD = config.get_config("MONGO","PASSWORD")
+        IP = config.get_config("MONGO","IP")
+
+        self.driver = driver
+        self.client_mongo = MongoDBClient(is_authen=False)
+        self.page = page
+>>>>>>> cb91e62a99809a1dd85fc85ea296fa2c02d98410
         self.PATH = config.get_config("PATH","FOLDER_SAVE_DATA")
 
     def handle_detail(self):
@@ -42,6 +53,7 @@ class DetailHandler:
                 logging.info(f"Đã xử lý và lưu trữ dữ liệu thành công lên mongo {len(list_data)} ban ghi")
             except Exception as e :
                 logging.warning(f"Loi :{e}")
+<<<<<<< HEAD
             # Lưu vào file JSON
 
             try:
@@ -51,6 +63,11 @@ class DetailHandler:
             except Exception as e :
                 logging.warning(f"loi :{e}")
                 
+=======
+            # Export data tu mongo
+            self.client_mongo.export_data()
+
+>>>>>>> cb91e62a99809a1dd85fc85ea296fa2c02d98410
             # Tạm dừng 5 giây trước khi tiếp tục
             time.sleep(5)
             return True
@@ -67,6 +84,7 @@ class DetailHandler:
                 try:
                     self.client_mongo.quit()
                 except Exception as e:
+<<<<<<< HEAD
                     logging.error(f"Lỗi khi đóng kết nối MongoDB: {str(e)}")
 
     def save_to_json(self, data, base_path):
@@ -112,3 +130,6 @@ class DetailHandler:
         except Exception as e:
             logging.error(f"Lỗi khi lưu file JSON: {str(e)}")
             return False
+=======
+                    logging.error(f"Lỗi khi đóng kết nối MongoDB: {str(e)}")
+>>>>>>> cb91e62a99809a1dd85fc85ea296fa2c02d98410

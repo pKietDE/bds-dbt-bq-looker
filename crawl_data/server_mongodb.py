@@ -3,11 +3,19 @@ from pymongo.errors import ConnectionFailure, OperationFailure, ServerSelectionT
 from typing import List, Dict, Optional
 import datetime
 import logging
+<<<<<<< HEAD
+=======
+import json
+>>>>>>> cb91e62a99809a1dd85fc85ea296fa2c02d98410
 from ConfigParser import *
 
 
 class MongoDBClient:
+<<<<<<< HEAD
     def __init__(self,name,password,ip,is_authen = False,host="mongodb://localhost:27017/", timeout=5000):
+=======
+    def __init__(self,name = None,password = None,ip = None,is_authen = False,host="mongodb://localhost:27017/", timeout=5000):
+>>>>>>> cb91e62a99809a1dd85fc85ea296fa2c02d98410
         """
         Khởi tạo kết nối MongoDB với timeout và xử lý lỗi.
         
@@ -36,8 +44,15 @@ class MongoDBClient:
             config_reader = ConfigReader()
             DATABASE = str(config_reader.get_config("MONGO","DATABASE"))
             COLLECTION = str(config_reader.get_config("MONGO","COLLECTION"))
+<<<<<<< HEAD
             
             current_date = datetime.datetime.now().strftime("%Y-%m-%d")
+=======
+
+            
+            current_date = datetime.datetime.now().strftime("%Y-%m-%d")
+            self.OUTPUT_BATH = str(config_reader.get_config("PATH","FOLDER_SAVE_DATA"))+f"data_bds_{current_date}.json"
+>>>>>>> cb91e62a99809a1dd85fc85ea296fa2c02d98410
             self.db = self.client[DATABASE]
             self.collection = self.db[f"{COLLECTION}{current_date}"]
             logging.info("Kết nối MongoDB thành công")
@@ -114,6 +129,40 @@ class MongoDBClient:
             logging.error(f"Lỗi không xác định khi insert_many: {str(e)}")
             return None
 
+<<<<<<< HEAD
+=======
+    def export_data(self) -> bool:
+        """
+        Xuất dữ liệu từ MongoDB collection ra một tệp JSON và loại bỏ trường _id.
+
+        Args:
+            output_file (str): Đường dẫn tệp JSON xuất ra.
+
+        Returns:
+            bool: Trả về True nếu xuất dữ liệu thành công, False nếu có lỗi.
+        """
+        try:
+            # Lấy tất cả dữ liệu từ collection
+            data_cursor = self.collection.find()
+
+            # Loại bỏ trường '_id' trong mỗi document
+            data = []
+            for doc in data_cursor:
+                doc.pop('_id', None)  # Loại bỏ trường '_id'
+                data.append(doc)
+
+            # Mở tệp và ghi dữ liệu
+            with open(self.OUTPUT_BATH, 'w', encoding='utf-8') as f:
+                json.dump(data, f, ensure_ascii=False, indent=4)
+            
+            logging.info(f"Dữ liệu đã được xuất thành công vào {self.OUTPUT_BATH}")
+            return True
+        except Exception as e:
+            logging.error(f"Lỗi khi xuất dữ liệu: {str(e)}")
+            return False
+
+
+>>>>>>> cb91e62a99809a1dd85fc85ea296fa2c02d98410
     def quit(self) -> None:
         """
         Đóng kết nối MongoDB an toàn.
@@ -132,4 +181,16 @@ class MongoDBClient:
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         """Đảm bảo đóng kết nối khi sử dụng with statement"""
+<<<<<<< HEAD
         self.quit()
+=======
+        self.quit()
+
+if __name__ == "__main__":
+    client_mongo = MongoDBClient(is_authen=False)
+    is_export = client_mongo.export_data()
+    if is_export:
+        print("export thanh cong")
+    else:
+        print("export that bai")
+>>>>>>> cb91e62a99809a1dd85fc85ea296fa2c02d98410

@@ -97,7 +97,11 @@ class DataExtractor:
                             update_element = card.find("span", class_="re__card-published-info-published-at")
 
                             # Lấy giá trị thuộc tính aria-label nếu tồn tại
+<<<<<<< HEAD
                             data['update_time'] = update_element.attrs.get('aria-label', '')
+=======
+                            data['update_time'] = TimeConverter.convert_update_time(update_element.attrs.get('aria-label', ''))
+>>>>>>> cb91e62a99809a1dd85fc85ea296fa2c02d98410
                             logging.info(f"Update time (span): {data['update_time']}")
                         except:
                             logging.warning("Không tìm thấy update_time (span)")
@@ -106,7 +110,11 @@ class DataExtractor:
                                 update_element = card.find("div", class_=["card-user-info--date-time"])
 
                                 # Lấy giá trị thời gian từ <div>
+<<<<<<< HEAD
                                 data['update_time'] = update_element.text.strip()
+=======
+                                data['update_time'] = TimeConverter(update_element.text.strip())
+>>>>>>> cb91e62a99809a1dd85fc85ea296fa2c02d98410
                                 logging.info(f"Update time (div): {data['update_time']}")
                             except:
                                 logging.warning("Không tìm thấy update_time (div)")
@@ -155,7 +163,11 @@ class DataExtractor:
                         # Kiểm tra và xử lý dữ liệu
                         if  data['update_time']:
                             
+<<<<<<< HEAD
                             if "Đăng 1 tuần trước" not in data['update_time']:
+=======
+                            if "Đăng 1 tuần trước" or "Đăng hôm nay" not in data['update_time']:
+>>>>>>> cb91e62a99809a1dd85fc85ea296fa2c02d98410
                                 # Kiểm tra dữ liệu có đầy đủ các trường quan trọng
                                 all_properties.append(data)
                                 invalid_count = 0  # Đặt lại invalid_count nếu dữ liệu hợp lệ

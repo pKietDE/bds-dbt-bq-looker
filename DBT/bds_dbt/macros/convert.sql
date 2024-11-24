@@ -25,8 +25,20 @@
 
 {% macro convert_update_time(update_time_column) %}
     CASE
+<<<<<<< HEAD
         WHEN REGEXP_CONTAINS(update_time, r'^\d{2}/\d{2}/\d{4}$') THEN PARSE_DATE('%d/%m/%Y', update_time)
         WHEN REGEXP_CONTAINS(update_time, r'^\d{4}-\d{2}-\d{2}$') THEN DATE(update_time)
+=======
+        WHEN REGEXP_CONTAINS({{ update_time_column }}, r'Đăng hôm nay') THEN CURRENT_DATE()
+        WHEN REGEXP_CONTAINS({{ update_time_column }}, r'Đăng hôm qua') THEN DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY)
+        WHEN REGEXP_CONTAINS({{ update_time_column }}, r'Đăng 2 ngày trước') THEN DATE_SUB(CURRENT_DATE(), INTERVAL 2 DAY)
+        WHEN REGEXP_CONTAINS({{ update_time_column }}, r'Đăng 3 ngày trước') THEN DATE_SUB(CURRENT_DATE(), INTERVAL 3 DAY)
+        WHEN REGEXP_CONTAINS({{ update_time_column }}, r'Đăng 4 ngày trước') THEN DATE_SUB(CURRENT_DATE(), INTERVAL 4 DAY)
+        WHEN REGEXP_CONTAINS({{ update_time_column }}, r'Đăng 5 ngày trước') THEN DATE_SUB(CURRENT_DATE(), INTERVAL 5 DAY)
+        WHEN REGEXP_CONTAINS({{ update_time_column }}, r'Đăng 6 ngày trước') THEN DATE_SUB(CURRENT_DATE(), INTERVAL 6 DAY)
+        WHEN REGEXP_CONTAINS({{ update_time_column }}, r'^\d{2}/\d{2}/\d{4}$') THEN PARSE_DATE('%d/%m/%Y', update_time)
+        WHEN REGEXP_CONTAINS({{ update_time_column }}, r'^\d{4}-\d{2}-\d{2}$') THEN DATE(update_time)
+>>>>>>> cb91e62a99809a1dd85fc85ea296fa2c02d98410
     END 
 {% endmacro %}
 

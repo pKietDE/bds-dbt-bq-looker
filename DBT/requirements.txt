@@ -1,3 +1,7 @@
 agate==1.9.1
 dbt-bigquery==1.8.3
+<<<<<<< HEAD
 dbt-core==1.8.8
+=======
+dbt-core==1.8.8
+>>>>>>> cb91e62a99809a1dd85fc85ea296fa2c02d98410
