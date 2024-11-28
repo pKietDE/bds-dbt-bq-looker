@@ -76,6 +76,7 @@ graph TD
     A --> E[Crawl_data]
     E --> B
     C --> B[Data Lake _GCP]
+    B --> C
     C --> D[Looker Studio]
 
 ```
