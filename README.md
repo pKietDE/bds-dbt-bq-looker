@@ -74,9 +74,9 @@
 graph TD
     A[Apache Airflow] --> C[DBT _BigQuery]
     A --> E[Crawl_data]
+    B[Data Lake _GCP] --> C
     C --> D[Looker Studio]
-    E --> B[Data Lake _GCP]
-    E --> C
+
 ```
 
 ## Hình ảnh
