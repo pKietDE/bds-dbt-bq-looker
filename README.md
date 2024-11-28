@@ -72,11 +72,10 @@
 ## Luồng dữ liệu  
 ```mermaid
 graph TD
-    A[Crawl dữ liệu] --> B[Data Lake _GCP]
-    B --> C[DBT _BigQuery]
+    A[Apache Airflow] --> C[DBT _BigQuery]
+    A --> E[Crawl_data]
     C --> D[Looker Studio]
-    A --> E[Apache Airflow]
-    E --> B
+    E --> B[Data Lake _GCP]
     E --> C
 ```
 
